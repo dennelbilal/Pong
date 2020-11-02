@@ -1,0 +1,13 @@
+
+
+let largeur=$("#balle").width();
+let gauche=parseInt ($("#balle").css("left"));
+let haut=parseInt ($("#balle").css("top"));
+alert(gauche);
+
+setInterval(funtion(){
+    gauche=gauche+1;
+    haut= haut+0.5;
+    $("#balle").css("left",gauche);
+    $("#balle").css("top",haut);
+}, 10;

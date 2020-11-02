@@ -6,12 +6,14 @@ body{
 }
 
 #terrain{
+    position: relative;
     border:1px solid white;
     width:800px;
     height:400px;
 }
 
 #balle{
+    position: absolute;
     width:20px;
     height:20;
     background-color: white;
