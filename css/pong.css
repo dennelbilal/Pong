@@ -2,7 +2,15 @@
 body {
     background: black;
     color: rgb(0, 200, 255);
-    font-family: Verdana
+    font-family: Verdana;
+    
+    /**centrer les élement de la page**/
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 }
 
 #terrain{
