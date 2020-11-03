@@ -11,7 +11,7 @@ setInterval(function(){
     haut = haut + 1;
     $("#ball").css("left",gauche);
     $("#ball").css("top",haut)
-    if(gauche >= 800){
+    if(gauche >= 750){
         alert("elle est dehors")
     }
     if (haut >= 400){
