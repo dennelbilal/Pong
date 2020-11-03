@@ -14,7 +14,7 @@ setInterval(function(){
     if(gauche >= 750){
         alert("elle est dehors")
     }
-    if (haut >= 500){
+    if (haut >= 600){
         alert("elle est dehors")
     }
 }, 10);
