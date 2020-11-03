@@ -1,12 +1,12 @@
 
 body {
     background: black;
-    color: rgb(0, 204, 255);
-    font-family: monospace
+    color: rgb(0, 200, 255);
+    font-family: Verdana
 }
 
 #terrain{
-    position:relative ;
+    position: center ;
     border: 1px solid white;
     width: 800px;
     height: 400px;
