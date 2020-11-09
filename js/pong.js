@@ -12,10 +12,9 @@ setInterval(function(){
     $("#ball").css("left",gauche);
     $("#ball").css("top",haut)
     if(gauche >= 600){
-        alert("elle est dehors")
     }
     if (haut >= 400){
-        alert("elle est dehors")
+        
     }
 }, 10);
 
