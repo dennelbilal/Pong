@@ -1,33 +1,55 @@
 
 
-let largeur=$("#ball").width();
-let gauche=parseInt(($("#ball").css("left")));
-let haut=parseInt(($("#ball").css("top")));
-
-
-let i=0;
-setInterval(function(){
-    gauche = gauche + 1;
-    haut = haut + 1;
-    $("#ball").css("left",gauche);
-    $("#ball").css("top",haut)
-    if(gauche >= 600){
-    }
-    if (haut >= 400){
-        
-    }
-}, 10);
-
+//let Largeur=$("#balle").width();
+//let gauche=parseInt($("#balle").css("left"));
+//let haut=parseInt($("#balle").css("top"));
 
 //fichier Terrain.js
 class Terrain{
     constructor($element){
         this.$element=$element
-        this.Largeur="à vous de jouer";
-        this.hauteur="à vous de jouer"; 
-
+        this.Largeur=$element.width();
+        this.hauteur=$element.height();
     }     
 
 }
-let terrein=new Terrain();
-console.log(terrain);
+//fichier Balle.js
+class Balle{
+    constructor($html){
+        this.$html=$html;
+        this.Largeur=parseInt($("#balle").css("left"));
+        this.hauteur=parseInt($("#balle").css("top"));
+        this.vitesseX=2;
+        this.vitesseY=0.5;
+    }     
+    majHTML(){
+       this.$html.css("left",balle.gauche);
+       this.$html.css("top",balle.haut);
+    }
+}
+ let terrain=new Terrain($("#terrain"));
+ let balle=new Balle($("#balle"));
+
+//modifie la position de la balle
+setInterval(function(){
+    balle.gauche =balle.gauche + balle.vitesseX;
+    balle.haut = balle.haut + balle.vitesseY;
+    if(balle.gauche>terrain.Largeur){
+        balle.gauche=terrain.Largeur;
+        balle.vitesseX=balle.vitesseX*-1;
+    }
+    if(balle.gauche<0){
+        balle.haut=0;
+        balle.vitesseX=balle.vitesseX*-1;
+    }
+    if(balle.haut>terrain.Largeur){
+        balle.gauche=terrain.Largeur;
+        balle.vitesseY=balle.vitesseY*-1;
+    }
+    if(balle.haut<0){
+        balle.haut=0;
+        balle.vitesseY=balle.vitesseY*-1;
+    }
+    balle.majHTML
+    
+}, 10);
