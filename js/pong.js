@@ -17,8 +17,8 @@ class Terrain{
 class Balle{
     constructor($html){
         this.$html=$html;
-        this.Largeur=parseInt($("#balle").css("left"));
-        this.hauteur=parseInt($("#balle").css("top"));
+        this.gauche=parseInt($("#balle").css("left"));
+        this.haut=parseInt($("#balle").css("top"));
         this.vitesseX=2;
         this.vitesseY=0.5;
     }     
@@ -34,6 +34,7 @@ class Balle{
 setInterval(function(){
     balle.gauche =balle.gauche + balle.vitesseX;
     balle.haut = balle.haut + balle.vitesseY;
+    
     if(balle.gauche>terrain.Largeur){
         balle.gauche=terrain.Largeur;
         balle.vitesseX=balle.vitesseX*-1;
