@@ -3,7 +3,7 @@
 let largeur=$("#ball").width();
 let gauche=parseInt(($("#ball").css("left")));
 let haut=parseInt(($("#ball").css("top")));
-alert(gauche);
+
 
 let i=0;
 setInterval(function(){
@@ -18,3 +18,16 @@ setInterval(function(){
         alert("elle est dehors")
     }
 }, 10);
+
+
+//fichier Terrain.js
+class Terrain{
+    constructor(){
+        this.Largeur=0;
+        this.hauteur=0; 
+
+    }     
+
+}
+let terrein=new Terrain();
+console.log(terrain);
