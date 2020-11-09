@@ -11,6 +11,9 @@ setInterval(function(){
     haut = haut + 1;
     $("#ball").css("left",gauche);
     $("#ball").css("top",haut)
+    if(gauche >= 600){
+    }
+    if (haut >= 400){
         
     }
 }, 10);
@@ -18,9 +21,10 @@ setInterval(function(){
 
 //fichier Terrain.js
 class Terrain{
-    constructor(){
-        this.Largeur=0;
-        this.hauteur=0; 
+    constructor($element){
+        this.$element=$element
+        this.Largeur="à vous de jouer";
+        this.hauteur="à vous de jouer"; 
 
     }     
 
