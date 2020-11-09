@@ -11,9 +11,6 @@ setInterval(function(){
     haut = haut + 1;
     $("#ball").css("left",gauche);
     $("#ball").css("top",haut)
-    if(gauche >= 600){
-    }
-    if (haut >= 400){
         
     }
 }, 10);
