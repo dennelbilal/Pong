@@ -7,10 +7,10 @@ let haut=parseInt($("#balle").css("top"));
 
 /*le Terrain*/
 class Terrain{
-    constructor($element){
-        this.$element=$element
-        this.largeur=$element.width();
-        this.hauteur=$element.height();
+    constructor($html){
+        this.$html=$html
+        this.Largeur=$html.width();
+        this.hauteur=$html.height();
               }
     }
 let terrain=new Terrain($("#terrain"));
@@ -68,21 +68,21 @@ setInterval(function(){
     balle.gauche = balle.gauche + balle.vitesseX;
     balle.haut = balle.haut + balle.vitesseY;
 
-    if(balle.gauche>terrain.largeur-balle.Largeur){
-    balle.gauche=terrain.largeur-balle.Largeur;
-    balle.vitesseX=balle.vitesseX*-1;
+    if(balle.gauche>terrain.Largeur){
+       balle.gauche=terrain.Largeur;
+       balle.vitesseX=balle.vitesseX*-1;
 }
     if(balle.gauche<0){
-    balle.gauche=0;
-    balle.vitesseX=balle.vitesseX*-1;
+       balle.gauche=0;
+       balle.vitesseX=balle.vitesseX*-1;
 }
-if(balle.haut>terrain.hauteur-balle.hauteur){
-    balle.haut=terrain.hauteur-balle.hauteur;
-    balle.vitesseY=balle.vitesseY*-1;
+    if(balle.haut>terrain.hauteur){
+       balle.haut=terrain.hauteur;
+       balle.vitesseY=balle.vitesseY*-1;
 }
-if(balle.haut<0){
-    balle.haut=0;
-    balle.vitesseY=balle.vitesseY*-1;
+    if(balle.haut<0){
+       balle.haut=0;
+       balle.vitesseY=balle.vitesseY*-1;
 }
 
 /**Mouvement des raquettes */
