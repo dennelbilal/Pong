@@ -39,17 +39,8 @@ setInterval(function(){
         balle.gauche=terrain.Largeur;
         balle.vitesseX=balle.vitesseX*-1;
     }
-    if(balle.gauche<0){
+    if(balle.haut>terrain.hauteur){
         balle.haut=0;
-        balle.vitesseX=balle.vitesseX*-1;
-    }
-    if(balle.haut>terrain.Largeur){
-        balle.gauche=terrain.Largeur;
-        balle.vitesseY=balle.vitesseY*-1;
-    }
-    if(balle.haut<0){
-        balle.haut=0;
-        balle.vitesseY=balle.vitesseY*-1;
     }
     balle.majHTML
     
