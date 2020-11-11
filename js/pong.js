@@ -1,22 +1,21 @@
 
 
-//let Largeur=$("#balle").width();
-//let gauche=parseInt($("#balle").css("left"));
-//let haut=parseInt($("#balle").css("top"));
+let Largeur=$("#balle").width();
+let gauche=parseInt($("#balle").css("left"));
+let haut=parseInt($("#balle").css("top"));
 
-//fichier Terrain
+
+/*le Terrain*/
 class Terrain{
     constructor($element){
         this.$element=$element
         this.largeur=$element.width();
         this.hauteur=$element.height();
-            
-        }
-    
+              }
     }
+let terrain=new Terrain($("#terrain"));
 
-//Classe Balle
-
+/*la Balle*/
 class Balle{
     constructor($html){
         this.$html=$html;
@@ -32,26 +31,85 @@ class Balle{
     }
 
 }
-
-let terrain=new Terrain($("#terrain"));
 let balle=new Balle($("#balle"));
 
+/*raquette gauche*/
+class RaquetteA{ 
+    constructor($html){
+        this.$html=$html;
+        this.haut=parseInt($("#raquetteA").css("top"));
+        this.vitesse=0.5;
+        this.hauteur=parseInt($("#raquetteA").css("height"));
+    }
+    majHTML(){
+        this.$html.css("top",raquetteA.haut);
+    }
 
-// Script de la balle
+}
+let raquetteA = new RaquetteA($("#raquetteA"));
+
+/* raquette droite*/
+class RaquetteB{
+    constructor($html){
+        this.$html=$html;
+        this.hauteur=parseInt($("#raquetteB").css("height"));
+        this.haut=parseInt($("#raquetteB").css("top"));
+        this.vitesse=0.5;
+    }
+    majHTML(){
+        this.$html.css("top",raquetteB.haut);
+    }
+}
+let raquetteB = new RaquetteB($("#raquetteB"));
+
+// Mouvement de la balle
 
 setInterval(function(){
     balle.gauche = balle.gauche + balle.vitesseX;
     balle.haut = balle.haut + balle.vitesseY;
 
-
-    if(balle.gauche>terrain.largeur){
-    balle.gauche=terrain.largeur;
+    if(balle.gauche>terrain.largeur-balle.Largeur){
+    balle.gauche=terrain.largeur-balle.Largeur;
     balle.vitesseX=balle.vitesseX*-1;
 }
-
-    if(balle.haut>terrain.hauteur){
-    balle.haut=0;
+    if(balle.gauche<0){
+    balle.gauche=0;
+    balle.vitesseX=balle.vitesseX*-1;
 }
+if(balle.haut>terrain.hauteur-balle.hauteur){
+    balle.haut=terrain.hauteur-balle.hauteur;
+    balle.vitesseY=balle.vitesseY*-1;
+}
+if(balle.haut<0){
+    balle.haut=0;
+    balle.vitesseY=balle.vitesseY*-1;
+}
+
+/**Mouvement des raquettes */
+raquetteA.haut=raquetteA.haut+raquetteA.vitesse;
+raquetteB.haut=raquetteB.haut+raquetteB.vitesse;
+
+if(raquetteA.haut>terrain.hauteur-raquetteA.hauteur){
+    raquetteA.haut=terrain.hauteur-raquetteA.hauteur;
+    raquetteA.vitesse=raquetteA.vitesse*-1;
+}
+if(raquetteA.haut<0){
+    raquetteA.haut=0;
+    raquetteA.vitesse=raquetteA.vitesse*-1;
+}
+
+if(raquetteB.haut>terrain.hauteur-2*raquetteB.hauteur){
+    raquetteB.haut=terrain.hauteur-2*raquetteB.hauteur;
+    raquetteB.vitesse=raquetteB.vitesse*-1;
+}
+
+if(raquetteB.haut<0-raquetteB.hauteur){
+    raquetteB.haut=0-raquetteB.hauteur;
+    raquetteB.vitesse=raquetteB.vitesse*-1;
+}
+
 balle.majHTML();
+raquetteA.majHTML();
+raquetteB.majHTML();
 
 }, 10);
