@@ -16,6 +16,8 @@ body {
 #terrain{
     position: relative;
     border: 1px solid white;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
     width: 800px;
     height: 400px;
 }
@@ -29,6 +31,7 @@ body {
     background-color: white;
     border-radius:100%;
 }
+  /*créer la raquette gauche*/
 #raquetteA{
     position : relative;
     top:10%;
@@ -37,7 +40,7 @@ body {
     height : 100px;
     background-color : white;
 }
-
+  /*créer la raquette droite*/
 #raquetteB{
     position : relative;
     top:80%;
