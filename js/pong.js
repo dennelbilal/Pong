@@ -1,33 +1,4 @@
 
-/*raquette gauche*/
-class RaquetteA{ 
-    constructor($html){
-        this.$html=$html;
-        this.haut=parseInt($("#raquetteA").css("top"));
-        this.vitesse=0.5;
-        this.hauteur=parseInt($("#raquetteA").css("height"));
-    }
-    majHTML(){
-        this.$html.css("top",raquetteA.haut);
-    }
-
-}
-let raquetteA = new RaquetteA($("#raquetteA"));
-
-/* raquette droite*/
-class RaquetteB{
-    constructor($html){
-        this.$html=$html;
-        this.hauteur=parseInt($("#raquetteB").css("height"));
-        this.haut=parseInt($("#raquetteB").css("top"));
-        this.vitesse=0.5;
-    }
-    majHTML(){
-        this.$html.css("top",raquetteB.haut);
-    }
-}
-let raquetteB = new RaquetteB($("#raquetteB"));
-
 // Mouvement de la balle
 
 setInterval(function(){
