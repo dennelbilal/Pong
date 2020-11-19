@@ -4,7 +4,7 @@ class Balle {
         this.$html = $html;
         this.haut = parseInt($html.css("top"));
         this.gauche = parseInt($html.css("left"));
-        this.vitesseX = 0.5;
+        this.vitesseX = 2;
         this.vitesseY = 0.5;
         this.diametre = $html.height()
         this.direction = 1;
