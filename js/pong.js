@@ -21,8 +21,8 @@ console.log(terrain);
 setInterval(function () {
     
     balle.bouge();
-    raquette1.bouge();
-    raquette2.bouge();
+    raquetteA.bouge();
+    raquetteB.bouge();
 }, 10);
 
 window.addEventListener("keydown", function (event) {
