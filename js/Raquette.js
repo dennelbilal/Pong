@@ -37,7 +37,7 @@ class Raquette {
 
         }
 
-        if (this.haut <0 ) {
+        if (this.haut < 0 ) {
             this.descend();
 
         }
