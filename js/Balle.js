@@ -33,12 +33,12 @@ class Balle {
     limiteMouvements() {
         if (this.gauche > terrain.largeur - this.diametre) {
             this.gauche = terrain.largeur - this.diametre;
-            this.diection = -1
+            this.diection = 0
         }
         console.log(this.droite)
         if (this.droite < terrain.largeur - this.diametre) {
             this.droite = terrain.largeur - this.diametre;
-            this.diection = 1
+            this.diection = 0
         }
         if (this.haut > terrain.hauteur - this.diametre) {
             this.haut = terrain.hauteur - this.diametre;
@@ -47,7 +47,7 @@ class Balle {
         console.log(this.bas)
         if (this.bas > terrain.hauteur - this.diametre) {
             this.bas = terrain.hauteur - this.diametre;
-            this.direction = 1
+            this.direction = 0
         }
     }
 }
