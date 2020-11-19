@@ -1,10 +1,8 @@
 //le terrain
-class Terrain{
-    constructor($html){
-        this.$html=$html
-        this.Largeur=$("#terrain").width();
-        this.hauteur=$("#terrain").height();
-              }
+class Terrain {
+    constructor($element) {
+        this.$element = $element;
+        this.largeur = $element.width();
+        this.hauteur = $element.height();
     }
-let terrain=new Terrain($("#terrain"));
-console.log(terrain);
+}

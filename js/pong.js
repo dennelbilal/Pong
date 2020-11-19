@@ -1,53 +1,28 @@
 
 // Mouvement de la balle
 
-setInterval(function(){
-    balle.gauche = balle.gauche + balle.vitesseX;
-    balle.haut = balle.haut + balle.vitesseY;
+let largeur = $("#balle").width();
+let gauche = parseInt($("#balle").css("left"));
+let haut = parseInt($("#balle").css("top"));
 
-    if(balle.gauche>terrain.Largeur){
-       balle.gauche=terrain.Largeur;
-       balle.vitesseX=balle.vitesseX*-1;
-}
-    if(balle.gauche<0){
-       balle.gauche=0;
-       balle.vitesseX=balle.vitesseX*-1;
-}
-    if(balle.bas>terrain.hauteur){
-       balle.bas=terrain.hauteur;
-       balle.vitesseY=balle.vitesseY*-1;
-}
-    if(balle.haut<0){
-       balle.haut=0;
-       balle.vitesseY=balle.vitesseY*-1;
-}
 
-/**Mouvement des raquettes */
-raquetteA.haut=raquetteA.haut+raquetteA.vitesse;
-raquetteB.haut=raquetteB.haut+raquetteB.vitesse;
+let raquette1=new Raquette($("#raquette1"))
+raquette1.descend();
 
-if(raquetteA.haut>terrain.hauteur-raquetteA.hauteur){
-    raquetteA.haut=terrain.hauteur-raquetteA.hauteur;
-    raquetteA.vitesse=raquetteA.vitesse*-1;
-}
-if(raquetteA.haut<0){
-    raquetteA.haut=0;
-    raquetteA.vitesse=raquetteA.vitesse*-1;
-}
+let raquette2=new Raquette($("#raquette2"))
+raquette2.monte();
 
-if(raquetteB.haut>terrain.hauteur-2*raquetteB.hauteur){
-    raquetteB.haut=terrain.hauteur-2*raquetteB.hauteur;
-    raquetteB.vitesse=raquetteB.vitesse*-1;
-}
+let terrain=new Terrain($("#terrain"))
+console.log(terrain);
 
-if(raquetteB.haut<0-raquetteB.hauteur){
-    raquetteB.haut=0-raquetteB.hauteur;
-    raquetteB.vitesse=raquetteB.vitesse*-1;
-}
+let balle=new Balle($("#balle"))
+console.log(terrain);
 
-raquetteA.majHTML();
-raquetteB.majHTML();
-
+setInterval(function () {
+    
+    balle.bouge();
+    raquette1.bouge();
+    raquette2.bouge();
 }, 10);
 
 window.addEventListener("keydown", function (event) {
