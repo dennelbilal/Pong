@@ -6,11 +6,11 @@ let gauche = parseInt($("#balle").css("left"));
 let haut = parseInt($("#balle").css("top"));
 
 
-let raquette1=new Raquette($("#raquette1"))
-raquette1.descend();
+let raquetteA=new Raquette($("#raquetteA"))
+raquetteA.descend();
 
-let raquette2=new Raquette($("#raquette2"))
-raquette2.monte();
+let raquetteB=new Raquette($("#raquetteB"))
+raquetteB.monte();
 
 let terrain=new Terrain($("#terrain"))
 console.log(terrain);
