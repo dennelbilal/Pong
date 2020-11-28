@@ -1,38 +1,29 @@
 
-// Mouvement de la balle
+let terrain = new Terrain($("#terrain"));
+let balle = new Balle($("#balle"));
+let joueur0 = new Joueur($("#Sgauche"));
+let joueur1 = new Joueur($("#Sdroite"));
+let raquetteDroite = new Raquette($("#droite"));
+let raquetteGauche = new Raquette($("#gauche"));
 
-let largeur = $("#balle").width();
-let gauche = parseInt($("#balle").css("left"));
-let haut = parseInt($("#balle").css("top"));
+//attribution du boolean de positionnement du joueur
+joueur0.cote = 0;
+joueur1.cote = 1;
 
+raquetteGauche.checkJoueur(terrain);
+raquetteDroite.checkJoueur(terrain);
 
-let raquetteA=new Raquette($("#raquetteA"))
-raquetteA.descend();
+raquetteGauche.positionY = terrain.hauteur/2-(raquetteGauche.hauteur/2);
+raquetteDroite.positionY = terrain.hauteur/2-(raquetteDroite.hauteur/2);
 
-let raquetteB=new Raquette($("#raquetteB"))
-raquetteB.monte();
+//ecoute des touches pour le controles des raquettes
+terrain.jouer(joueur0, joueur1, raquetteGauche,raquetteDroite);
 
-let terrain=new Terrain($("#terrain"))
-console.log(terrain);
-
-let balle=new Balle($("#balle"))
-console.log(terrain);
-
-setInterval(function () {
-    
-    balle.bouge();
-    raquetteA.bouge();
-    raquetteB.bouge();
+/**
+ * lancement boucle de jeu
+ */
+setInterval(function(){
+    balle.bouger(terrain, joueur0, joueur1);
+    raquetteGauche.bouger(terrain);
+    raquetteDroite.bouger(terrain);
 }, 10);
-
-window.addEventListener("keydown", function (event) {
-    if (event.defaultPrevented) { return}
-    console.log("La touche '"+event.key+ "' a été enfoncée")
-    event.preventDefault();
-  }, true);
-  
-  window.addEventListener("keyup", function (event) {
-    if (event.defaultPrevented) { return}
-    console.log("La touche '"+event.key+ "' a été relachée")
-    event.preventDefault();
-  }, true);

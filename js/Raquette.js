@@ -1,48 +1,70 @@
 //les raquettes
-class Raquette {
-    constructor($html) {
-        this.$html = $html;
-        this.haut = parseInt($html.css("top"));
-        this.largeur = $html.width();
-        this.hauteur = $html.height();
-        this.vitesse = 1.5;
-        this.direction = 1;
-        console.log(this.haut)
+class Raquette{
+    
+    constructor($element){
+        this.$element = $element;
+        this.hauteur = $element.height();
+        this.largeur =$element.width();
+        this.positionX = parseInt(this.$element.css("left"));
+        this.positionY = parseInt(this.$element.css("top"));
+        this.vitesseY = 0;
+        this.gauche = true;
 
     }
+
+    //getter and setter
     get bas(){
-        return this.haut+this.hauteur
+        return this.positionY + this.hauteur;
     }
-   
-    majHTML(){
-        this.$html.css("top", this.haut);
+    get droite(){
+        return this.positionX + this.largeur;
     }
-    monte(){
-        this.direction = -1;
+    set bas(value) {
+        this.positionY = value - this.hauteur;
     }
-    descend(){
-        this.direction = 1;
+    set droite(value){
+        this.positionX = value - this.largeur;
     }
+
     
-    bouge(){
-        this.haut = this.haut + this.vitesse*this.direction;
-        this.limiteMouvements();
+    checkJoueur(terrain){
+        this.gauche = (this.positionX < terrain.largeur / 2);
+    }
+    bouger(){
+        this.positionY = this.positionY + this.vitesseY;
         this.majHTML();
     }
 
-    limiteMouvements(){
-        console.log(this.bas)
-        if (this.bas > terrain.hauteur) {
-            this.monte();
+    arreterDeBouger(){
+        this.vitesseY = 0;
+    }
 
+    monter(){
+        if (this.positionY > 0){
+            this.vitesseY = -2;
         }
-
-        if (this.haut < 0 ) {
-            this.descend();
-
+        else{
+            this.positionY = 0;
+            this.arreterDeBouger();
         }
+    }
 
+    descendre(){
+        if (this.bas < terrain.hauteur){
+            this.vitesseY = 2;
+        }
+        else{
+            this.bas = terrain.hauteur;
+            this.arreterDeBouger();
+        }
+    }
 
+    calculRebond(positionYBalle){    
+    }
+
+    majHTML(){
+        this.$element.css("left",this.positionX);
+        this.$element.css("top",this.positionY);
     }
 
 }

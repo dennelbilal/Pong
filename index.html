@@ -1,24 +1,39 @@
   
-<html>
+<html lang="fr">
     <head>
         <title>PONG</title>
         <link rel="stylesheet" href="css/pong.css"/>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        
     </head>
     <body>
-         
-        <div id="terrain">
 
-            <div id="balle"></div>
-            <div class= "raquette" id="raquetteA"></div>
-            <div class= "raquette" id="raquetteB"></div>
-            
+        <div id="titre">
+            <p>Joueur 1</p>
+            <p> POUR JOUER :</p>
+            <div>
+                <div id="Z">Z</div> et <div id="S">S</div>
+            </div>
+            <p>Joueur 2</p>
+            <p> POUR JOUER :</p>
+            <div>
+                <div id="P">P</div> et <div id="M">M</div>
+            </div>
+            <a class="btn">START</a>
+        </div>
+        <div id="terrain">
+            <div id="Sdroite" class="score">0</div>
+            <div id="Sgauche" class="score">0</div>
+            <div id="balle">
+            </div>
+            <div id="droite" class="raquette">
+            </div>
+            <div id="gauche" class="raquette">
+            </div>
         </div>
     </body>
-
+    <script src="js/Terrain.js"></script>
     <script src="js/Raquette.js"></script>
     <script src="js/Balle.js"></script>
-    <script src="js/Terrain.js"></script>
+    <script src="js/Joueur.js"></script>
     <script src="js/pong.js"></script>
 </html>
